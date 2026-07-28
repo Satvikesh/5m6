@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Registration Form</title>
+<script>
+function validation(){
+let firstname=document.from["regForm"]["fristname"].value;
+let lastname=document.from["regForm"]["lastname"].value;
+let email=document.from["regForm"]["email"].value;
+let phone=document.from["regForm"]["phone"].value;
+let gender=document.from["regForm"]["gender"].value;
+let email pattern=/^[^\s@+@[^\s@+\.[^\s@+$/;
+let phonePattern=/^[0-9]{10}$/;
+if(fristname==""){
+alter("please enter your frist name");
+return false;
+}
+if(lastname==""){
+alter("please enter your last name");
+return false;
+}
+if(!emailPattern.test(email)){
+alter("please enter a vaild email address");
+return false;
+}
+if(!phonePattern.test(phone)){
+alter("please enter a valid 10-digit phone number ");
+return false;
+}
+if(dob==""){
+alter("please enter the date of Brith");
+return false;
+}
+if(gender==""){
+alter("please select your gender");
+return false;
+}
+alter("Registration successful!");
+return true;
+}
+</script>
+
+</head>
+<body>
+<h2>Registration Form</h2>
+<form>
+<label>Frist Name:</label>
+<input type="text" name="firstname" required><br><br>
+<lable>Last Name:</lable>
+<input type="text" name="lastname" required><br><br>
+<lable>Email:</lable>
+<input type="email" name="email" required><br><br>
+<lable>Phone Number:</lable>
+<input type="tel" name="phone" required><br><br>
+<lable> Date of Brith:</lable>
+<input type="date" name="dob"><br><br>
+<lable>gender:</lable>
+<input type="radio" name="gender" value="male">male
+<input type="radio" name="gender" value="female">female
+<br><br>
+<input type="submit" value="register">
+<input type="reset" value="Reset">
+</form>
+</body>
+</html>

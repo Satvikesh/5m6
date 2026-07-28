@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .gender {
+            margin-top: 10px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: 48%;
+            padding: 10px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background: #28a745;
+            color: white;
+        }
+
+        input[type="submit"]:hover {
+            background: #218838;
+        }
+
+        input[type="reset"] {
+            background: #dc3545;
+            color: white;
+            float: right;
+        }
+
+        input[type="reset"]:hover {
+            background: #c82333;
+        }
+    </style>
+
+    <script>
+        function validation() {
+
+            let firstname = document.forms["regForm"]["firstname"].value;
+            let lastname = document.forms["regForm"]["lastname"].value;
+            let email = document.forms["regForm"]["email"].value;
+            let phone = document.forms["regForm"]["phone"].value;
+            let dob = document.forms["regForm"]["dob"].value;
+            let gender = document.querySelector('input[name="gender"]:checked');
+
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            let phonePattern = /^[0-9]{10}$/;
+
+            if (firstname == "") {
+                alert("Please enter your first name");
+                return false;
+            }
+
+            if (lastname == "") {
+                alert("Please enter your last name");
+                return false;
+            }
+
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address");
+                return false;
+            }
+
+            if (!phonePattern.test(phone)) {
+                alert("Please enter a valid 10-digit phone number");
+                return false;
+            }
+
+            if (dob == "") {
+                alert("Please enter your date of birth");
+                return false;
+            }
+
+            if (!gender) {
+                alert("Please select your gender");
+                return false;
+            }
+
+            alert("Registration Successful!");
+            return true;
+        }
+    </script>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Registration Form</h2>
+
+    <form name="regForm" onsubmit="return validation()">
+
+        <label>First Name:</label>
+        <input type="text" name="firstname">
+
+        <label>Last Name:</label>
+        <input type="text" name="lastname">
+
+        <label>Email:</label>
+        <input type="email" name="email">
+
+        <label>Phone Number:</label>
+        <input type="tel" name="phone">
+
+        <label>Date of Birth:</label>
+        <input type="date" name="dob">
+
+        <label>Gender:</label>
+        <div class="gender">
+            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Female"> Female
+        </div>
+
+        <input type="submit" value="Register">
+        <input type="reset" value="Reset">
+
+    </form>
+</div>
+
+</body>
+</html>
